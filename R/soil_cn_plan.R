@@ -17,7 +17,7 @@ list(
       node = "tx9r2",
       file = "24256_CN_EA_PeterF_B1_241106_report.xlsx",
       path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xxi_soil_carbon_and_nitrogen/")
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xvii_soil_carbon_and_nitrogen/")
   ),
 
   tar_target(
@@ -26,7 +26,7 @@ list(
       node = "tx9r2",
       file = "24256_CN_EA_PeterF_B2_241107_report.xlsx",
       path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xxi_soil_carbon_and_nitrogen/")
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xvii_soil_carbon_and_nitrogen/")
   ),
 
   tar_target(
@@ -35,7 +35,7 @@ list(
       node = "tx9r2",
       file = "24256_CN_EA_PeterF_B3_241108_report.xlsx",
       path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xxi_soil_carbon_and_nitrogen/")
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xvii_soil_carbon_and_nitrogen/")
   ),
 
   tar_target(
@@ -44,7 +44,7 @@ list(
       node = "tx9r2",
       file = "24256_CN_EA_PeterF_B4_241112_report.xlsx",
       path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xxi_soil_carbon_and_nitrogen/")
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xvii_soil_carbon_and_nitrogen/")
   ),
 
   # clean and combine the CN sheets:
