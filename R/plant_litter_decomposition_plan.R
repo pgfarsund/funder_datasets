@@ -1,14 +1,6 @@
 # plant litter decomposition plan
 
-library(targets)
-library(tarchetypes)
-
-source("R/functions/plant_litter_decomposition_functions.R")
-
-tar_option_set(packages = c("dataDownloader", "dataDocumentation",
-                            "tidyverse", "janitor", "readxl"))
-
-list(
+plant_litter_decomposition_plan <- list(
 
   # get litter bags weights pre burial
   tar_target(
@@ -16,8 +8,9 @@ list(
     command = get_file(
       node = "tx9r2",
       file = "FUNDER_raw_beforeburrying_litter_biomass_2021.xlsx",
-      path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xxi_plant_litter_decomposition/")
+      path = here::here("raw_data/soil_carbon_and_nitrogen"),
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xxi_plant_litter_decomposition/"),
+    format = "file"
   ),
 
   # clean pre burial weights
@@ -32,8 +25,9 @@ list(
     command = get_file(
       node = "tx9r2",
       file = "FUNDER_raw_afterburrying_litter_biomass_2022.xlsx",
-      path = "raw_data/soil_carbon_and_nitrogen",
-      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xxi_plant_litter_decomposition/")
+      path = here::here("raw_data/soil_carbon_and_nitrogen"),
+      remote_path = "xvii-xxiii_carbon_and_nutrient_cycling/xxi_plant_litter_decomposition/"),
+    format = "file"
   ),
 
   # clean post burial weights
@@ -51,10 +45,19 @@ list(
 
   # combine pre weights, post weights, and comments
   tar_target(
-    name = plant_litter_decomposition,
+    name = clean_plant_litter_decomposition,
     command = finish(pre = pre_burial_weights,
                      post = post_burial_weights,
                      comment = comments)
+  ),
+
+  # save output
+  tar_target(
+    name = plant_litter_decomposition_output,
+    command = save_csv(
+      file = clean_plant_litter_decomposition,
+      name = "FUNDER_clean_plant_litter_decomposition_2022.csv"
+    )
   )
 
 
