@@ -27,7 +27,7 @@ tar_option_set(
     "hms",
     "fluxible",
     "osfr",
-    "limma",
+    "limma"
   ) # packages that your targets need to run
 )
 #"TNRS"
