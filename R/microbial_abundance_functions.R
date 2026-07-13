@@ -1034,12 +1034,6 @@ combine_bacteria_and_fungi <- function(bac, fun) {
   # join the two dataframes
   full_join(bac, fun) |>
 
-    # # filter out standard curves, block 4 controls, and replicates
-    # filter(!is.na(siteID), # takes care of standard curves
-    #        sub != "control", # takes care of block 4 controls
-    #        is.na(replicate) # takes care of replicates
-    #
-    # ) |>
     # pivot to long format
     rename(uncorrected_bacteria = bacterial_abundance,
            uncorrected_fungi = fungal_abundance,
@@ -1060,7 +1054,6 @@ combine_bacteria_and_fungi <- function(bac, fun) {
       uncorrected_abundance_per_g = round(uncorrected * 10 * 100 * 4, digits = 2),
       corrected_abundance_per_g = round(corrected * 10 * 100 * 4, digits = 2)) |>
     mutate(year = 2022, .before = 1) |>
-    #filter(!is.na(abundance_per_g)) |>
     arrange(blockID)
 
 }
