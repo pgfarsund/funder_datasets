@@ -510,7 +510,7 @@ correct_bacteria_batch_effect <- function(data) {
   mod_mat <- model.matrix(~ treatment + mean_temp + mean_precip + siteID + sub, metadata)
 
   # remove batch effect with limma
-  corrected <- removeBatchEffect(
+  corrected <- limma::removeBatchEffect(
     x = correct_me,
     batch = metadata$DNA_extraction_batch,
     design = mod_mat
@@ -577,7 +577,7 @@ correct_bacteria_batch_effect <- function(data) {
   mod_mat <- model.matrix(~ treatment + mean_temp + mean_precip + siteID + sub, metadata)
 
   # remove batch effect with limma
-  corrected <- removeBatchEffect(
+  corrected <- limma::removeBatchEffect(
     x = correct_me,
     batch = metadata$DNA_extraction_batch,
     design = mod_mat
@@ -935,7 +935,7 @@ correct_fungi_batch_effect <- function(data) {
   mod_mat <- model.matrix(~ treatment + mean_temp + mean_precip + siteID + sub, metadata)
 
   # remove batch effect with limma
-  corrected <- removeBatchEffect(
+  corrected <- limma::removeBatchEffect(
     x = correct_me,
     batch = metadata$DNA_extraction_batch,
     design = mod_mat
@@ -1002,7 +1002,7 @@ correct_fungi_batch_effect <- function(data) {
   mod_mat <- model.matrix(~ treatment + mean_temp + mean_precip + siteID + sub, metadata)
 
   # remove batch effect with limma
-  corrected <- removeBatchEffect(
+  corrected <- limma::removeBatchEffect(
     x = correct_me,
     batch = metadata$DNA_extraction_batch,
     design = mod_mat
