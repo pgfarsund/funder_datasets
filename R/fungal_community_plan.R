@@ -8,7 +8,7 @@ fungal_community_plan <- list(
     command = get_file(
       node = "tx9r2",
       file = "xiii-xiv_FUNDER_soil_and_litter_OTU_with_taxonomy_ITS2.txt",
-      path = here::here("raw_data"),
+      path = here::here("raw_data/fungal_community"),
       remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities/"
     ),
     format = "file",
@@ -32,7 +32,7 @@ fungal_community_plan <- list(
     command = get_file(
       node = "tx9r2",
       file = "xiii-xiv_FUNDER_plotIDs.xlsx",
-      path = here::here("raw_data"),
+      path = here::here("raw_data/fungal_community"),
       remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities/"
     ),
     format = "file",
