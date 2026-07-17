@@ -7,9 +7,9 @@ fungal_community_plan <- list(
     name = fungi_raw_soil_litter,
     command = get_file(
       node = "tx9r2",
-      file = "FUNDER_soil_and_litter_OTU_with_taxonomy_ITS2.txt",
-      path = here::here("raw_data/fungal_community"),
-      remote_path = "xii-xvi_soil_microbes_fungi/"
+      file = "xiii-xiv_FUNDER_soil_and_litter_OTU_with_taxonomy_ITS2.txt",
+      path = here::here("raw_data"),
+      remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities/"
     ),
     format = "file",
   ),
@@ -31,9 +31,9 @@ fungal_community_plan <- list(
     name = fungi_plotIDs,
     command = get_file(
       node = "tx9r2",
-      file = "FUNDER_plotIDs.xlsx",
-      path = here::here("raw_data/fungal_community"),
-      remote_path = "xii-xvi_soil_microbes_fungi/"
+      file = "xiii-xiv_FUNDER_plotIDs.xlsx",
+      path = here::here("raw_data"),
+      remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities/"
     ),
     format = "file",
   ),
@@ -65,17 +65,14 @@ fungal_community_plan <- list(
     command = subset_phyloseq(ps = fungi_phyloseq, to_keep = "litter")
   ),
 
-  ##### Targets 16 - 21 take care of assembling and cleaning the ######
-  ##### fungal necromass fungal community datasets: ###################
-
   # 8) get necromass fungal OTUs and taxonomy
   tar_target(
     name = fungi_raw_necromass,
     command = get_file(
       node = "tx9r2",
-      file = "FUNDER_fungal_necromass_OTU_with_taxonomy_ITS2.txt",
+      file = "xv_FUNDER_fungal_necromass_OTU_with_taxonomy_ITS2.txt",
       path = here::here("raw_data/fungal_community"),
-      remote_path = "xii-xvi_soil_microbes_fungi/"
+      remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities"
     ),
     format = "file",
   ),
@@ -97,9 +94,9 @@ fungal_community_plan <- list(
     name = necromass_sample_data,
     command = get_file(
       node = "tx9r2",
-      file = "necromass_sample_data.xlsx",
+      file = "xv_necromass_sample_data.xlsx",
       path = here::here("raw_data/fungal_community"),
-      remote_path = "xii-xvi_soil_microbes_fungi/"
+      remote_path = "ix-xv_soil_biota/xiii-xv_fungal_communities"
     ),
     format = "file",
   ),
@@ -130,16 +127,16 @@ fungal_community_plan <- list(
     name = soil_fungi_output,
     command = saveRDS(
       object = soil_fungi_phyloseq,
-      file = "FUNDER_clean_soil_fungal_community_2022.RDS"),
+      file = "xiii_FUNDER_clean_soil_fungal_community_2022.RDS"),
     format = "file"
   ),
 
-  #litter
+  # litter
   tar_target(
     name = litter_fungi_output,
     command = saveRDS(
       object = litter_fungi_phyloseq,
-      file = "FUNDER_clean_litter_fungal_community_2022.RDS"),
+      file = "xiv_FUNDER_clean_litter_fungal_community_2022.RDS"),
     format = "file"
   ),
 
@@ -148,7 +145,7 @@ fungal_community_plan <- list(
     name = necromass_fungi_output,
     command = saveRDS(
       object = necromass_fungi_phyloseq,
-      file = "FUNDER_clean_necromass_fungal_community_2022.RDS"),
+      file = "xv_FUNDER_clean_necromass_fungal_community_2022.RDS"),
     format = "file"
   )
 
